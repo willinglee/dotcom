@@ -2,6 +2,8 @@ import { Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
 import { WebLinksAddon } from 'xterm-addon-web-links';
 
+import { boot } from './boot';
+
 export function setupTerminal() {
   const term = new Terminal({ cursorBlink: true });
   const fitAddon = new FitAddon();
@@ -13,4 +15,6 @@ export function setupTerminal() {
   term.loadAddon(webLinksAddon);
 
   fitAddon.fit();
+
+  boot(term, {});
 }
