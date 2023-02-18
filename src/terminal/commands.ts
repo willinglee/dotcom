@@ -4,7 +4,10 @@ import { prompt } from './helpers';
 
 enum ECommand {
   HELP = 'help',
-  CURRENT = 'current'
+  CURRENT = 'current',
+  CLEAR = 'clear',
+  PROJECTS = 'projects',
+  RESUME = 'resume',
 }
 
 type TCommand = {
@@ -20,9 +23,7 @@ const commands: TCommands = {
     func: (term) => {
       term.writeln([
         '',
-        'Welcome to dotcom. Try some commands to start:',
-        '',
-        ...Object.keys(commands).map(e => `  ${e}`),
+        ...Object.keys(commands).map(e => `${e}`),
       ].join('\n\r'))
     },
   },
@@ -30,8 +31,24 @@ const commands: TCommands = {
     func: (term) => {
       term.writeln([
         '',
-        'manager at unison',
+        'Manager at Unison.',
       ].join('\n\r'))
+    }
+  },
+  [ECommand.CLEAR]: {
+    func: (term) => {
+      term.reset();
+    }
+  },
+  [ECommand.PROJECTS]: {
+    func: (term) => {
+      term.writeln('');
+      term.writeln('https://legend.fyi\x1b[0;38m');
+    }
+  },
+  [ECommand.RESUME]: {
+    func: (term) => {
+      term.writeln('');
     }
   }
 }
