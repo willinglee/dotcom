@@ -21,7 +21,10 @@ export function boot(term: Terminal, state: IState) {
         prompt(term);
         break;
       case '\r': // enter
-        enterCommand(term);
+        const normalBuffer = term.buffer.normal;
+        const inputText = normalBuffer.getLine(normalBuffer.cursorY)?.translateToString()
+        const command = inputText?.slice(2, inputText.length - 1) ?? '';
+        enterCommand(term, command);
         break;
       case '\u007F': // backspace
         // do not delete the prompt
