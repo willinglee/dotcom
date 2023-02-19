@@ -11,6 +11,9 @@ export function boot(term: Terminal, state: IState) {
 
   state._initialized = true;
 
+  term.writeln('\nwillinglee@pizza');
+  term.writeln('----------------\n\r');
+  term.writeln('Type help to get started.');
   term.focus();
   prompt(term);
 

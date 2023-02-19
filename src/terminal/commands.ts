@@ -42,13 +42,13 @@ const commands: TCommands = {
   },
   [ECommand.PROJECTS]: {
     func: (term) => {
-      term.writeln('');
-      term.writeln('https://legend.fyi\x1b[0;38m');
+      term.writeln('\n\rhttps://legend.fyi\x1b[0;38m');
     }
   },
   [ECommand.RESUME]: {
     func: (term) => {
-      term.writeln('');
+      term.writeln('\n\rhttps://www.linkedin.com/in/willinglee\x1b[0;38m');
+      term.writeln('\rhttps://github.com/willinglee\x1b[0;38m');
     }
   }
 }
